@@ -16,4 +16,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get boats => 'Boats';
+
+  @override
+  String get registrationNumber => 'Registratoin';
+
+  @override
+  String get captainShare => 'Captain Share';
+
+  @override
+  String get addBoat => 'Add Boat';
+
+  @override
+  String get boatName => 'Boat Name';
+
+  @override
+  String get editBoat => 'Edit Boat';
+
+  @override
+  String get enterBoatName => 'Enter Boat Name';
+
+  @override
+  String get enterRegistrationNumber => 'Enter Registation Number';
+
+  @override
+  String get enterCaptainShare => 'Enter Captain Share';
+
+  @override
+  String get enterValidCaptainShare => 'Enter Valid Number Between 0 and 100';
+
+  @override
+  String get enterPositiveNumber => 'Enter Positive Number';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get error => 'error';
+
+  @override
+  String get failedToSave => 'Failed to Save';
+
+  @override
+  String get succeeded => 'Succeeded';
 }

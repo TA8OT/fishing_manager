@@ -16,4 +16,52 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get home => 'الرئيسية';
+
+  @override
+  String get boats => 'القوارب';
+
+  @override
+  String get registrationNumber => 'رقم التسجيل';
+
+  @override
+  String get captainShare => 'نسبة النوخذة';
+
+  @override
+  String get addBoat => 'أضف قارب';
+
+  @override
+  String get boatName => 'اسم القارب';
+
+  @override
+  String get editBoat => 'تعديل القارب';
+
+  @override
+  String get enterBoatName => 'يرجى إدخال اسم القارب';
+
+  @override
+  String get enterRegistrationNumber => 'ادخل رقم التسجيل';
+
+  @override
+  String get enterCaptainShare => 'ادخل نسبة النوخذة';
+
+  @override
+  String get enterValidCaptainShare => 'Enter Valid Number Between 0 and 100';
+
+  @override
+  String get enterPositiveNumber => 'ادخل رقم موجب';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get update => 'تحديث';
+
+  @override
+  String get error => 'خطاء';
+
+  @override
+  String get failedToSave => 'فشل في الحفظ';
+
+  @override
+  String get succeeded => 'نجح';
 }

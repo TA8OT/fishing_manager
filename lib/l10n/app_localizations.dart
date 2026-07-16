@@ -115,6 +115,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// No description provided for @boats.
+  ///
+  /// In en, this message translates to:
+  /// **'Boats'**
+  String get boats;
+
+  /// No description provided for @registrationNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Registratoin'**
+  String get registrationNumber;
+
+  /// No description provided for @captainShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Captain Share'**
+  String get captainShare;
+
+  /// No description provided for @addBoat.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Boat'**
+  String get addBoat;
+
+  /// No description provided for @boatName.
+  ///
+  /// In en, this message translates to:
+  /// **'Boat Name'**
+  String get boatName;
+
+  /// No description provided for @editBoat.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Boat'**
+  String get editBoat;
+
+  /// No description provided for @enterBoatName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Boat Name'**
+  String get enterBoatName;
+
+  /// No description provided for @enterRegistrationNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Registation Number'**
+  String get enterRegistrationNumber;
+
+  /// No description provided for @enterCaptainShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Captain Share'**
+  String get enterCaptainShare;
+
+  /// No description provided for @enterValidCaptainShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Valid Number Between 0 and 100'**
+  String get enterValidCaptainShare;
+
+  /// No description provided for @enterPositiveNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Positive Number'**
+  String get enterPositiveNumber;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'error'**
+  String get error;
+
+  /// No description provided for @failedToSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to Save'**
+  String get failedToSave;
+
+  /// No description provided for @succeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Succeeded'**
+  String get succeeded;
 }
 
 class _AppLocalizationsDelegate

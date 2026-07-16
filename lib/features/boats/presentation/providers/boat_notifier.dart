@@ -7,54 +7,57 @@ import 'package:fishing_app/features/boats/data/models/boat_model.dart';
 class BoatNotifier extends Notifier<BoatState> {
   late final BoatRepository repository;
   @override
-  build() {
+  BoatState build() {
     repository = BoatRepository(AppDatabase.instance);
+    Future.microtask(() => loadBoats());
 
     return BoatState(boats: [], isLoading: false);
   }
 
   Future<void> loadBoats() async {
-    state.copyWith(isLoading: true);
+    state = state.copyWith(isLoading: true);
 
     try {
       final result = await repository.getAllBoats();
-      state.copyWith(boats: result);
+      state = state.copyWith(
+        boats: result,
+        isLoading: false,
+        errorMessage: null,
+      );
     } catch (e) {
-      state.copyWith(errorMessage: e.toString(), isLoading: false);
+      state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
-
-    state.copyWith(isLoading: false);
   }
 
   Future<void> addBoat(BoatModel boat) async {
-    state.copyWith(isLoading: true);
+    state = state.copyWith(isLoading: true);
 
     try {
       await repository.insertBoat(boat);
     } catch (e) {
-      state.copyWith(errorMessage: e.toString(), isLoading: false);
+      state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
     await loadBoats();
   }
 
   Future<void> updateBoat(BoatModel boat) async {
-    state.copyWith(isLoading: true);
+    state = state.copyWith(isLoading: true);
 
     try {
       await repository.updateBoat(boat);
     } catch (e) {
-      state.copyWith(errorMessage: e.toString(), isLoading: false);
+      state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
     await loadBoats();
   }
 
   Future<void> deleteBoat(int id) async {
-    state.copyWith(isLoading: true);
+    state = state.copyWith(isLoading: true);
 
     try {
       await repository.deleteBoat(id);
     } catch (e) {
-      state.copyWith(errorMessage: e.toString(), isLoading: false);
+      state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
     await loadBoats();
   }

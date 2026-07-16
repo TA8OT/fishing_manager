@@ -1,5 +1,22 @@
 {
+  "@@locale": "en",
   "appName": "Fishing Manager",
   "changeTheme": "Change Theme",
-  "home": "Home"
+  "home": "Home",
+  "boats": "Boats",
+  "registrationNumber": "Registratoin",
+  "captainShare": "Captain Share",
+  "addBoat": "Add Boat",
+  "boatName": "Boat Name",
+  "editBoat": "Edit Boat",
+  "enterBoatName": "Enter Boat Name",
+  "enterRegistrationNumber": "Enter Registation Number",
+  "enterCaptainShare": "Enter Captain Share",
+  "enterValidCaptainShare": "Enter Valid Number Between 0 and 100",
+  "enterPositiveNumber": "Enter Positive Number",
+  "save": "Save",
+  "update": "Update",
+  "error": "error",
+  "failedToSave": "Failed to Save",
+  "succeeded": "Succeeded"
 }

@@ -1,5 +1,22 @@
 {
+  "@@locale": "ar",
   "appName": "إدارة القوارب",
   "changeTheme": "تغيير المظهر",
-  "home": "الرئيسية"
+  "home": "الرئيسية",
+  "boats": "القوارب",
+  "registrationNumber": "رقم التسجيل",
+  "captainShare": "نسبة النوخذة",
+  "addBoat": "أضف قارب",
+  "boatName": "اسم القارب",
+  "editBoat": "تعديل القارب",
+  "enterBoatName": "يرجى إدخال اسم القارب",
+  "enterRegistrationNumber": "ادخل رقم التسجيل",
+  "enterCaptainShare": "ادخل نسبة النوخذة",
+  "enterValidCaptianShare": "ادخل رقم صحيح بين 0 و 100",
+  "enterPositiveNumber": "ادخل رقم موجب",
+  "save": "حفظ",
+  "update": "تحديث",
+  "error": "خطاء",
+  "failedToSave": "فشل في الحفظ",
+  "succeeded": "نجح"
 }
