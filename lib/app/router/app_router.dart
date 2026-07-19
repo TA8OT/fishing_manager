@@ -1,3 +1,4 @@
+import 'package:fishing_app/features/boats/data/models/boat_model.dart';
 import 'package:fishing_app/features/boats/presentation/screens/boat_form_screen.dart';
 import 'package:fishing_app/features/boats/presentation/screens/boat_list_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -7,7 +8,14 @@ final appRouter = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
-    GoRoute(path: '/boatform', builder: (context, state) => BoatFormScreen()),
+    GoRoute(
+      path: '/boatform',
+      builder: (context, state) {
+        final boat = state.extra as BoatModel?;
+
+        return BoatFormScreen(boat: boat);
+      },
+    ),
     GoRoute(path: '/boats', builder: (context, state) => BoatListScreen()),
   ],
 );

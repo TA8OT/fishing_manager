@@ -4,6 +4,7 @@
   "changeTheme": "Change Theme",
   "home": "Home",
   "boats": "Boats",
+  "noBoatFound": "No Boat Data is Found",
   "registrationNumber": "Registratoin",
   "captainShare": "Captain Share",
   "addBoat": "Add Boat",
@@ -18,5 +19,9 @@
   "update": "Update",
   "error": "error",
   "failedToSave": "Failed to Save",
-  "succeeded": "Succeeded"
+  "succeeded": "Succeeded",
+  "deleteConfirmation": "Delete Confirmation",
+  "areSuretoDelete": "Are You Sure You Want to Permanently Delete The Boat?",
+  "cancel": "Cancel",
+  "delete": "Delete"
 }

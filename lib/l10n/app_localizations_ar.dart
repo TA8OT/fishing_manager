@@ -21,6 +21,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get boats => 'القوارب';
 
   @override
+  String get noBoatFound => 'ليس هناك قوارب لعرضها';
+
+  @override
   String get registrationNumber => 'رقم التسجيل';
 
   @override
@@ -45,7 +48,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterCaptainShare => 'ادخل نسبة النوخذة';
 
   @override
-  String get enterValidCaptainShare => 'Enter Valid Number Between 0 and 100';
+  String get enterValidCaptainShare => 'ادخل رقم صحيح بين 0 و 100';
 
   @override
   String get enterPositiveNumber => 'ادخل رقم موجب';
@@ -64,4 +67,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get succeeded => 'نجح';
+
+  @override
+  String get deleteConfirmation => 'تأكيد الحذف';
+
+  @override
+  String get areSuretoDelete => 'هل انت متأكد من حذف القارب نهائياً؟';
+
+  @override
+  String get cancel => 'الغاء';
+
+  @override
+  String get delete => 'حذف';
 }

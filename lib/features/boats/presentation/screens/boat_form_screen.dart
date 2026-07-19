@@ -17,27 +17,31 @@ class BoatFormScreen extends ConsumerStatefulWidget {
 }
 
 class _BoatFormScreenState extends ConsumerState<BoatFormScreen> {
-  final nameController = TextEditingController();
-  final registrationController = TextEditingController();
-  final captainController = TextEditingController();
+  late final TextEditingController nameController;
+  late final TextEditingController registrationController;
+  late final TextEditingController captainShareController;
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
 
-    if (widget.boat != null) {
-      nameController.text = widget.boat!.name;
-      registrationController.text = widget.boat!.registrationNumber;
-      captainController.text = widget.boat!.captainShare.toString();
-    }
+    nameController = TextEditingController(text: widget.boat?.name ?? '');
+
+    registrationController = TextEditingController(
+      text: widget.boat?.registrationNumber ?? '',
+    );
+
+    captainShareController = TextEditingController(
+      text: widget.boat?.captainShare.toString() ?? '',
+    );
   }
 
   @override
   void dispose() {
     nameController.dispose();
     registrationController.dispose();
-    captainController.dispose();
+    captainShareController.dispose();
 
     super.dispose();
   }
@@ -45,7 +49,6 @@ class _BoatFormScreenState extends ConsumerState<BoatFormScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final state = ref.watch(boatProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -111,7 +114,7 @@ class _BoatFormScreenState extends ConsumerState<BoatFormScreen> {
 
                   return null;
                 },
-                controller: captainController,
+                controller: captainShareController,
                 keyboardType: TextInputType.numberWithOptions(),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -123,35 +126,61 @@ class _BoatFormScreenState extends ConsumerState<BoatFormScreen> {
               ElevatedButton(
                 style: ButtonStyle(),
 
-                onPressed: state.isLoading
+                onPressed: ref.read(boatProvider).isLoading
                     ? null
-                    : () {
+                    : () async {
                         if (!_formKey.currentState!.validate()) {
                           return;
                         }
-                        final boat = BoatModel(
-                          name: nameController.text,
-                          registrationNumber: registrationController.text,
-                          captainShare: double.parse(captainController.text),
-                        );
+                        final messenger = ScaffoldMessenger.of(context);
+                        final focusScope = FocusScope.of(context);
+                        final router = GoRouter.of(context);
 
-                        ref.read(boatProvider.notifier).addBoat(boat);
+                        if (widget.boat == null) {
+                          await ref
+                              .read(boatProvider.notifier)
+                              .addBoat(
+                                BoatModel(
+                                  name: nameController.text,
+                                  registrationNumber:
+                                      registrationController.text,
+                                  captainShare: double.parse(
+                                    captainShareController.text,
+                                  ),
+                                ),
+                              );
+                        } else {
+                          await ref
+                              .read(boatProvider.notifier)
+                              .updateBoat(
+                                BoatModel(
+                                  id: widget.boat!.id,
+                                  name: nameController.text,
+                                  registrationNumber:
+                                      registrationController.text,
+                                  captainShare: double.parse(
+                                    captainShareController.text,
+                                  ),
+                                ),
+                              );
+                        }
 
-                        if (state.errorMessage != null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
+                        if (ref.read(boatProvider).errorMessage != null) {
+                          messenger.showSnackBar(
                             SnackBar(
                               content: Text(
-                                "${l10n.error}: ${l10n.failedToSave}  \n ${state.errorMessage}",
+                                "${l10n.error}: ${l10n.failedToSave}  \n ${ref.read(boatProvider).errorMessage}",
                               ),
                             ),
                           );
                           return;
                         } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
+                          messenger.showSnackBar(
                             SnackBar(content: Text(l10n.succeeded)),
                           );
-                          FocusScope.of(context).unfocus();
-                          context.pop();
+
+                          focusScope.unfocus();
+                          router.pop();
                         }
                       },
                 child: Text(widget.boat == null ? l10n.save : l10n.update),

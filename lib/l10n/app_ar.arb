@@ -4,6 +4,7 @@
   "changeTheme": "تغيير المظهر",
   "home": "الرئيسية",
   "boats": "القوارب",
+  "noBoatFound": "ليس هناك قوارب لعرضها",
   "registrationNumber": "رقم التسجيل",
   "captainShare": "نسبة النوخذة",
   "addBoat": "أضف قارب",
@@ -12,11 +13,15 @@
   "enterBoatName": "يرجى إدخال اسم القارب",
   "enterRegistrationNumber": "ادخل رقم التسجيل",
   "enterCaptainShare": "ادخل نسبة النوخذة",
-  "enterValidCaptianShare": "ادخل رقم صحيح بين 0 و 100",
+  "enterValidCaptainShare": "ادخل رقم صحيح بين 0 و 100",
   "enterPositiveNumber": "ادخل رقم موجب",
   "save": "حفظ",
   "update": "تحديث",
   "error": "خطاء",
   "failedToSave": "فشل في الحفظ",
-  "succeeded": "نجح"
+  "succeeded": "نجح",
+  "deleteConfirmation": "تأكيد الحذف",
+  "areSuretoDelete": "هل انت متأكد من حذف القارب نهائياً؟",
+  "cancel": "الغاء",
+  "delete": "حذف"
 }

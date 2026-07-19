@@ -21,6 +21,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get boats => 'Boats';
 
   @override
+  String get noBoatFound => 'No Boat Data is Found';
+
+  @override
   String get registrationNumber => 'Registratoin';
 
   @override
@@ -64,4 +67,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get succeeded => 'Succeeded';
+
+  @override
+  String get deleteConfirmation => 'Delete Confirmation';
+
+  @override
+  String get areSuretoDelete =>
+      'Are You Sure You Want to Permanently Delete The Boat?';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
 }

@@ -122,6 +122,12 @@ abstract class AppLocalizations {
   /// **'Boats'**
   String get boats;
 
+  /// No description provided for @noBoatFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Boat Data is Found'**
+  String get noBoatFound;
+
   /// No description provided for @registrationNumber.
   ///
   /// In en, this message translates to:
@@ -211,6 +217,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Succeeded'**
   String get succeeded;
+
+  /// No description provided for @deleteConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Confirmation'**
+  String get deleteConfirmation;
+
+  /// No description provided for @areSuretoDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Are You Sure You Want to Permanently Delete The Boat?'**
+  String get areSuretoDelete;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
 }
 
 class _AppLocalizationsDelegate
