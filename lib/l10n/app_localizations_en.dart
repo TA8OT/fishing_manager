@@ -21,7 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get boats => 'Boats';
 
   @override
-  String get noBoatFound => 'No Boat Data is Found';
+  String get noDataFound => 'No Data Found';
 
   @override
   String get registrationNumber => 'Registratoin';
@@ -72,12 +72,35 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteConfirmation => 'Delete Confirmation';
 
   @override
-  String get areSuretoDelete =>
-      'Are You Sure You Want to Permanently Delete The Boat?';
+  String get areSuretoDelete => 'Are You Sure You Want to Permanently Delete?';
 
   @override
   String get cancel => 'Cancel';
 
   @override
   String get delete => 'Delete';
+
+  @override
+  String get workers => 'Workers';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get addWorker => 'Add Worker';
+
+  @override
+  String get editWorker => 'Edit Worker';
+
+  @override
+  String get enterWorkerName => 'Enter Worker Name';
+
+  @override
+  String get workerName => 'Worker Name';
+
+  @override
+  String get enterPhone => 'Enter Phone Number';
+
+  @override
+  String get notAvailable => 'Not Avaliable';
 }

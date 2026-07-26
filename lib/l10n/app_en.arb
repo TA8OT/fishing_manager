@@ -4,7 +4,7 @@
   "changeTheme": "Change Theme",
   "home": "Home",
   "boats": "Boats",
-  "noBoatFound": "No Boat Data is Found",
+  "noDataFound": "No Data Found",
   "registrationNumber": "Registratoin",
   "captainShare": "Captain Share",
   "addBoat": "Add Boat",
@@ -21,7 +21,15 @@
   "failedToSave": "Failed to Save",
   "succeeded": "Succeeded",
   "deleteConfirmation": "Delete Confirmation",
-  "areSuretoDelete": "Are You Sure You Want to Permanently Delete The Boat?",
+  "areSuretoDelete": "Are You Sure You Want to Permanently Delete?",
   "cancel": "Cancel",
-  "delete": "Delete"
+  "delete": "Delete",
+  "workers": "Workers",
+  "phone": "Phone",
+  "addWorker": "Add Worker",
+  "editWorker": "Edit Worker",
+  "enterWorkerName": "Enter Worker Name",
+  "workerName": "Worker Name",
+  "enterPhone": "Enter Phone Number",
+  "notAvailable": "Not Avaliable"
 }

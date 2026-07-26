@@ -1,5 +1,4 @@
 import 'package:fishing_app/core/constants/app_gap.dart';
-import 'package:fishing_app/core/constants/app_sizes.dart';
 import 'package:fishing_app/core/constants/app_spacing.dart';
 import 'package:fishing_app/features/boats/data/models/boat_model.dart';
 import 'package:fishing_app/features/boats/presentation/providers/boat_provider.dart';
@@ -141,11 +140,12 @@ class _BoatFormScreenState extends ConsumerState<BoatFormScreen> {
                               .read(boatProvider.notifier)
                               .addBoat(
                                 BoatModel(
-                                  name: nameController.text,
-                                  registrationNumber:
-                                      registrationController.text,
+                                  name: nameController.text.trim(),
+                                  registrationNumber: registrationController
+                                      .text
+                                      .trim(),
                                   captainShare: double.parse(
-                                    captainShareController.text,
+                                    captainShareController.text.trim(),
                                   ),
                                 ),
                               );
@@ -155,11 +155,12 @@ class _BoatFormScreenState extends ConsumerState<BoatFormScreen> {
                               .updateBoat(
                                 BoatModel(
                                   id: widget.boat!.id,
-                                  name: nameController.text,
-                                  registrationNumber:
-                                      registrationController.text,
+                                  name: nameController.text.trim(),
+                                  registrationNumber: registrationController
+                                      .text
+                                      .trim(),
                                   captainShare: double.parse(
-                                    captainShareController.text,
+                                    captainShareController.text.trim(),
                                   ),
                                 ),
                               );

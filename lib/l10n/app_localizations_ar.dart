@@ -21,7 +21,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get boats => 'القوارب';
 
   @override
-  String get noBoatFound => 'ليس هناك قوارب لعرضها';
+  String get noDataFound => 'لم يتم العثور على اي بيانات';
 
   @override
   String get registrationNumber => 'رقم التسجيل';
@@ -79,4 +79,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get delete => 'حذف';
+
+  @override
+  String get workers => 'العمال';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get addWorker => 'Add Worker';
+
+  @override
+  String get editWorker => 'Edit Worker';
+
+  @override
+  String get enterWorkerName => 'Enter Worker Name';
+
+  @override
+  String get workerName => 'Worker Name';
+
+  @override
+  String get enterPhone => 'Enter Phone Number';
+
+  @override
+  String get notAvailable => 'Not Avaliable';
 }

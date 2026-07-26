@@ -122,11 +122,11 @@ abstract class AppLocalizations {
   /// **'Boats'**
   String get boats;
 
-  /// No description provided for @noBoatFound.
+  /// No description provided for @noDataFound.
   ///
   /// In en, this message translates to:
-  /// **'No Boat Data is Found'**
-  String get noBoatFound;
+  /// **'No Data Found'**
+  String get noDataFound;
 
   /// No description provided for @registrationNumber.
   ///
@@ -227,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @areSuretoDelete.
   ///
   /// In en, this message translates to:
-  /// **'Are You Sure You Want to Permanently Delete The Boat?'**
+  /// **'Are You Sure You Want to Permanently Delete?'**
   String get areSuretoDelete;
 
   /// No description provided for @cancel.
@@ -241,6 +241,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete'**
   String get delete;
+
+  /// No description provided for @workers.
+  ///
+  /// In en, this message translates to:
+  /// **'Workers'**
+  String get workers;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @addWorker.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Worker'**
+  String get addWorker;
+
+  /// No description provided for @editWorker.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Worker'**
+  String get editWorker;
+
+  /// No description provided for @enterWorkerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Worker Name'**
+  String get enterWorkerName;
+
+  /// No description provided for @workerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Worker Name'**
+  String get workerName;
+
+  /// No description provided for @enterPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Phone Number'**
+  String get enterPhone;
+
+  /// No description provided for @notAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Avaliable'**
+  String get notAvailable;
 }
 
 class _AppLocalizationsDelegate

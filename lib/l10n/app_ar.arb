@@ -4,7 +4,7 @@
   "changeTheme": "تغيير المظهر",
   "home": "الرئيسية",
   "boats": "القوارب",
-  "noBoatFound": "ليس هناك قوارب لعرضها",
+  "noDataFound": "لم يتم العثور على اي بيانات",
   "registrationNumber": "رقم التسجيل",
   "captainShare": "نسبة النوخذة",
   "addBoat": "أضف قارب",
@@ -23,5 +23,6 @@
   "deleteConfirmation": "تأكيد الحذف",
   "areSuretoDelete": "هل انت متأكد من حذف القارب نهائياً؟",
   "cancel": "الغاء",
-  "delete": "حذف"
+  "delete": "حذف",
+  "workers": "العمال"
 }

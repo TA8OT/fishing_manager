@@ -1,4 +1,6 @@
 import 'package:fishing_app/features/boats/data/tables/boat_table.dart';
+import 'package:fishing_app/features/owners/data/tables/owner_table.dart';
+import 'package:fishing_app/features/workers/data/tables/worker_table.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -23,6 +25,12 @@ class AppDatabase {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    return db.execute(BoatTable.createTable);
+    final batch = db.batch();
+
+    batch.execute(BoatTable.createTable);
+    batch.execute(WorkerTable.createTable);
+    batch.execute(OwnerTable.createTable);
+
+    await batch.commit();
   }
 }

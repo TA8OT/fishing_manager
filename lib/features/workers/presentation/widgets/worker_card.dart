@@ -1,18 +1,17 @@
 import 'package:fishing_app/core/constants/app_gap.dart';
-import 'package:fishing_app/features/boats/data/models/boat_model.dart';
-import 'package:flutter/material.dart';
+import 'package:fishing_app/features/workers/data/models/worker_model.dart';
 import 'package:fishing_app/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
 
-class BoatCard extends StatelessWidget {
-  final BoatModel boat;
+class WorkerCard extends StatelessWidget {
+  final WorkerModel worker;
   final VoidCallback onDelete;
   final VoidCallback onEdit;
-
-  const BoatCard({
+  const WorkerCard({
     super.key,
-    required this.boat,
-    required this.onEdit,
+    required this.worker,
     required this.onDelete,
+    required this.onEdit,
   });
 
   @override
@@ -22,11 +21,9 @@ class BoatCard extends StatelessWidget {
     return Card(
       child: ListTile(
         title: Row(
-          children: [Icon(Icons.directions_boat), AppGap.w12, Text(boat.name)],
+          children: [Icon(Icons.person), AppGap.w12, Text(worker.name)],
         ),
-        subtitle: Text(
-          '${l10n!.registrationNumber}:  ${boat.registrationNumber} \n${l10n.captainShare}:  ${boat.captainShare}',
-        ),
+        subtitle: Text("${l10n!.phone}: ${worker.phone ?? l10n.notAvailable}"),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

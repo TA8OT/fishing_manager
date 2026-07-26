@@ -1,26 +1,26 @@
 import 'package:fishing_app/core/constants/app_spacing.dart';
-import 'package:fishing_app/features/boats/presentation/providers/boat_provider.dart';
-import 'package:fishing_app/features/boats/presentation/widgets/boat_card.dart';
+import 'package:fishing_app/features/workers/presentation/providers/worker_provider.dart';
+import 'package:fishing_app/features/workers/presentation/widgets/worker_card.dart';
 import 'package:fishing_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class BoatListScreen extends ConsumerWidget {
-  const BoatListScreen({super.key});
+class WorkerListScreen extends ConsumerWidget {
+  const WorkerListScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(boatProvider);
+    final state = ref.watch(workerProvider);
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n!.boats),
+        title: Text(l10n!.workers),
         actions: [
           IconButton(
             onPressed: () {
-              ref.read(boatProvider.notifier).loadBoats();
+              ref.read(workerProvider.notifier).loadWorkers();
             },
             icon: Icon(Icons.refresh),
           ),
@@ -28,7 +28,7 @@ class BoatListScreen extends ConsumerWidget {
       ),
       body: RefreshIndicator(
         onRefresh: () async {
-          await ref.read(boatProvider.notifier).loadBoats();
+          await ref.read(workerProvider.notifier).loadWorkers();
         },
         child: Builder(
           builder: (context) {
@@ -48,7 +48,7 @@ class BoatListScreen extends ConsumerWidget {
               );
             }
 
-            if (state.boats.isEmpty) {
+            if (state.workers.isEmpty) {
               return ListView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 children: [
@@ -63,15 +63,10 @@ class BoatListScreen extends ConsumerWidget {
             return ListView.builder(
               physics: const AlwaysScrollableScrollPhysics(),
               padding: const EdgeInsets.all(AppSpacing.sm),
-              itemCount: state.boats.length,
+              itemCount: state.workers.length,
               itemBuilder: (context, index) {
-                return BoatCard(
-                  boat: state.boats[index],
-
-                  onEdit: () {
-                    context.push("boatform", extra: state.boats[index]);
-                  },
-
+                return WorkerCard(
+                  worker: state.workers[index],
                   onDelete: () {
                     showDialog(
                       context: context,
@@ -92,8 +87,8 @@ class BoatListScreen extends ConsumerWidget {
                             TextButton(
                               onPressed: () {
                                 ref
-                                    .read(boatProvider.notifier)
-                                    .deleteBoat(state.boats[index].id!);
+                                    .read(workerProvider.notifier)
+                                    .deleteWorker(state.workers[index].id!);
 
                                 Navigator.pop(dialogContext);
                               },
@@ -105,6 +100,9 @@ class BoatListScreen extends ConsumerWidget {
                       },
                     );
                   },
+                  onEdit: () {
+                    context.push('workerform', extra: state.workers[index]);
+                  },
                 );
               },
             );
@@ -114,7 +112,7 @@ class BoatListScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          context.push('boatform');
+          context.push('workerform');
         },
       ),
     );
