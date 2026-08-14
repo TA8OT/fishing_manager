@@ -3,14 +3,16 @@ import 'package:fishing_app/features/boats/data/tables/boat_table.dart';
 class BoatModel {
   final int? id;
   final String name;
-  final String registrationNumber;
+  final String? registrationNumber;
   final double captainShare;
+  final int? captainWorkerId;
 
   const BoatModel({
     this.id,
     required this.name,
-    required this.registrationNumber,
+    this.registrationNumber,
     required this.captainShare,
+    this.captainWorkerId,
   });
 
   Map<String, dynamic> toMap() {
@@ -19,6 +21,7 @@ class BoatModel {
       BoatTable.nameColumn: name,
       BoatTable.registrationNumberColumn: registrationNumber,
       BoatTable.captainShareColumn: captainShare,
+      BoatTable.captainWorkerId: captainWorkerId,
     };
   }
 
@@ -28,6 +31,7 @@ class BoatModel {
       name: map[BoatTable.nameColumn],
       registrationNumber: map[BoatTable.registrationNumberColumn],
       captainShare: map[BoatTable.captainShareColumn],
+      captainWorkerId: map[BoatTable.captainWorkerId],
     );
   }
 
@@ -36,12 +40,14 @@ class BoatModel {
     String? name,
     String? registrationNumber,
     double? captainShare,
+    int? captainWorkerId,
   }) {
     return BoatModel(
       id: id ?? this.id,
       name: name ?? this.name,
       registrationNumber: registrationNumber ?? this.registrationNumber,
       captainShare: captainShare ?? this.captainShare,
+      captainWorkerId: captainWorkerId ?? this.captainWorkerId,
     );
   }
 }

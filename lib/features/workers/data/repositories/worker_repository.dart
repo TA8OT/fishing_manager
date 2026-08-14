@@ -46,7 +46,7 @@ class WorkerRepository {
 
     final maps = await db.query(
       WorkerTable.tableName,
-      where: '${WorkerTable.tableName} = ?',
+      where: '${WorkerTable.idColumn} = ?',
       whereArgs: [id],
       limit: 1,
     );

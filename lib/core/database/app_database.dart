@@ -1,5 +1,8 @@
 import 'package:fishing_app/features/boats/data/tables/boat_table.dart';
+import 'package:fishing_app/features/expenses/data/tables/expense_table.dart';
+import 'package:fishing_app/features/fishs/data/tables/fish_table.dart';
 import 'package:fishing_app/features/owners/data/tables/owner_table.dart';
+import 'package:fishing_app/features/trips/data/tables/trip_table.dart';
 import 'package:fishing_app/features/workers/data/tables/worker_table.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -21,7 +24,14 @@ class AppDatabase {
   Future<Database> _initDatabase() async {
     final path = join(await getDatabasesPath(), 'fishing_manager.db');
 
-    return openDatabase(path, version: 1, onCreate: _onCreate);
+    return openDatabase(
+      path,
+      version: 1,
+      onConfigure: (db) async {
+        await db.execute('PRAGMA foreign_keys = ON');
+      },
+      onCreate: _onCreate,
+    );
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -30,6 +40,9 @@ class AppDatabase {
     batch.execute(BoatTable.createTable);
     batch.execute(WorkerTable.createTable);
     batch.execute(OwnerTable.createTable);
+    batch.execute(FishTable.createTable);
+    batch.execute(TripTable.createTable);
+    batch.execute(ExpenseTable.createTable);
 
     await batch.commit();
   }

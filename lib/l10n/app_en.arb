@@ -31,5 +31,18 @@
   "enterWorkerName": "Enter Worker Name",
   "workerName": "Worker Name",
   "enterPhone": "Enter Phone Number",
-  "notAvailable": "Not Avaliable"
+  "notAvailable": "Not Avaliable",
+  "owners": "Owners",
+  "addOwner": "Add Owner",
+  "editOwner": "Edit Owner",
+  "enterOwnerName": "Enter Owner Name",
+  "name": "Name",
+  "fishs": "Fishs",
+  "addFish": "Add Fish",
+  "editFish": "Edit Fish",
+  "enterFishName": "Enter Fish Name",
+  "expense": "Expense",
+  "addExpense": "Add Expense",
+  "editExpense": "Edit Expense",
+  "enterExpenseName": "Enter Expense Name"
 }

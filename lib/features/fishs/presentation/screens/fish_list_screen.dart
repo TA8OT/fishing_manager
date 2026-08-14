@@ -1,26 +1,26 @@
 import 'package:fishing_app/core/constants/app_spacing.dart';
-import 'package:fishing_app/features/workers/presentation/providers/worker_provider.dart';
-import 'package:fishing_app/features/workers/presentation/widgets/worker_card.dart';
+import 'package:fishing_app/features/fishs/presentation/providers/fish_provider.dart';
+import 'package:fishing_app/features/fishs/presentation/widgets/fish_card.dart';
 import 'package:fishing_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class WorkerListScreen extends ConsumerWidget {
-  const WorkerListScreen({super.key});
+class FishListScreen extends ConsumerWidget {
+  const FishListScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(workerProvider);
+    final state = ref.watch(fishProvider);
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n!.workers),
+        title: Text(l10n!.fishs),
         actions: [
           IconButton(
             onPressed: () async {
-              await ref.read(workerProvider.notifier).loadWorkers();
+              await ref.read(fishProvider.notifier).loadFishs();
             },
             icon: Icon(Icons.refresh),
           ),
@@ -28,7 +28,7 @@ class WorkerListScreen extends ConsumerWidget {
       ),
       body: RefreshIndicator(
         onRefresh: () async {
-          await ref.read(workerProvider.notifier).loadWorkers();
+          await ref.read(fishProvider.notifier).loadFishs();
         },
         child: Builder(
           builder: (context) {
@@ -48,7 +48,7 @@ class WorkerListScreen extends ConsumerWidget {
               );
             }
 
-            if (state.workers.isEmpty) {
+            if (state.fishs.isEmpty) {
               return ListView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 children: [
@@ -63,10 +63,10 @@ class WorkerListScreen extends ConsumerWidget {
             return ListView.builder(
               physics: const AlwaysScrollableScrollPhysics(),
               padding: const EdgeInsets.all(AppSpacing.sm),
-              itemCount: state.workers.length,
+              itemCount: state.fishs.length,
               itemBuilder: (context, index) {
-                return WorkerCard(
-                  worker: state.workers[index],
+                return FishCard(
+                  fish: state.fishs[index],
                   onDelete: () {
                     showDialog(
                       context: context,
@@ -87,8 +87,8 @@ class WorkerListScreen extends ConsumerWidget {
                             TextButton(
                               onPressed: () {
                                 ref
-                                    .read(workerProvider.notifier)
-                                    .deleteWorker(state.workers[index].id!);
+                                    .read(fishProvider.notifier)
+                                    .deleteFish(state.fishs[index].id!);
 
                                 Navigator.pop(dialogContext);
                               },
@@ -101,7 +101,7 @@ class WorkerListScreen extends ConsumerWidget {
                     );
                   },
                   onEdit: () {
-                    context.push('workerform', extra: state.workers[index]);
+                    context.push('fishform', extra: state.fishs[index]);
                   },
                 );
               },
@@ -112,7 +112,7 @@ class WorkerListScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          context.push('workerform');
+          context.push('fishform');
         },
       ),
     );

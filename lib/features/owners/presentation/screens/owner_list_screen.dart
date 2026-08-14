@@ -1,26 +1,26 @@
 import 'package:fishing_app/core/constants/app_spacing.dart';
-import 'package:fishing_app/features/workers/presentation/providers/worker_provider.dart';
-import 'package:fishing_app/features/workers/presentation/widgets/worker_card.dart';
+import 'package:fishing_app/features/owners/presentation/providers/owner_provider.dart';
+import 'package:fishing_app/features/owners/presentation/widgets/owner_card.dart';
 import 'package:fishing_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class WorkerListScreen extends ConsumerWidget {
-  const WorkerListScreen({super.key});
+class OwnerListScreen extends ConsumerWidget {
+  const OwnerListScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(workerProvider);
+    final state = ref.watch(ownerProvider);
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n!.workers),
+        title: Text(l10n!.owners),
         actions: [
           IconButton(
             onPressed: () async {
-              await ref.read(workerProvider.notifier).loadWorkers();
+              await ref.read(ownerProvider.notifier).loadOwners();
             },
             icon: Icon(Icons.refresh),
           ),
@@ -28,7 +28,7 @@ class WorkerListScreen extends ConsumerWidget {
       ),
       body: RefreshIndicator(
         onRefresh: () async {
-          await ref.read(workerProvider.notifier).loadWorkers();
+          await ref.read(ownerProvider.notifier).loadOwners();
         },
         child: Builder(
           builder: (context) {
@@ -48,14 +48,12 @@ class WorkerListScreen extends ConsumerWidget {
               );
             }
 
-            if (state.workers.isEmpty) {
+            if (state.owners.isEmpty) {
               return ListView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 children: [
-                  SizedBox(
-                    height: 500,
-                    child: Center(child: Text(l10n.noDataFound)),
-                  ),
+                  SizedBox(height: 500),
+                  Center(child: Text(l10n.noDataFound)),
                 ],
               );
             }
@@ -63,36 +61,31 @@ class WorkerListScreen extends ConsumerWidget {
             return ListView.builder(
               physics: const AlwaysScrollableScrollPhysics(),
               padding: const EdgeInsets.all(AppSpacing.sm),
-              itemCount: state.workers.length,
+              itemCount: state.owners.length,
               itemBuilder: (context, index) {
-                return WorkerCard(
-                  worker: state.workers[index],
+                return OwnerCard(
+                  owner: state.owners[index],
                   onDelete: () {
                     showDialog(
                       context: context,
-
                       builder: (dialogContext) {
                         return AlertDialog(
                           title: Text(l10n.deleteConfirmation),
-
                           content: Text(l10n.areSuretoDelete),
-
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.pop(dialogContext),
-
                               child: Text(l10n.cancel),
                             ),
 
                             TextButton(
                               onPressed: () {
                                 ref
-                                    .read(workerProvider.notifier)
-                                    .deleteWorker(state.workers[index].id!);
+                                    .read(ownerProvider.notifier)
+                                    .deleteOwner(state.owners[index].id!);
 
                                 Navigator.pop(dialogContext);
                               },
-
                               child: Text(l10n.delete),
                             ),
                           ],
@@ -101,7 +94,7 @@ class WorkerListScreen extends ConsumerWidget {
                     );
                   },
                   onEdit: () {
-                    context.push('workerform', extra: state.workers[index]);
+                    context.push('ownerform', extra: state.owners[index]);
                   },
                 );
               },
@@ -112,7 +105,7 @@ class WorkerListScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          context.push('workerform');
+          context.push('ownerform');
         },
       ),
     );

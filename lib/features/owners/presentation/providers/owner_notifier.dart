@@ -10,12 +10,12 @@ class OwnerNotifier extends Notifier<OwnerState> {
   @override
   OwnerState build() {
     repository = OwnerRepository(AppDatabase.instance);
-    Future.microtask(() => loadOwner());
+    Future.microtask(() => loadOwners());
 
     return OwnerState(owners: [], isLoading: false);
   }
 
-  Future<void> loadOwner() async {
+  Future<void> loadOwners() async {
     state = state.copyWith(isLoading: true);
 
     try {
@@ -29,19 +29,17 @@ class OwnerNotifier extends Notifier<OwnerState> {
     } catch (e) {
       state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
-
-    await loadOwner();
   }
 
   Future<void> addOwner(OwnerModel owner) async {
     state = state.copyWith(isLoading: true);
 
     try {
-      await repository.updateOwner(owner);
+      await repository.insertOwner(owner);
     } catch (e) {
       state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
-    await loadOwner();
+    await loadOwners();
   }
 
   Future<void> updateOwner(OwnerModel owner) async {
@@ -53,7 +51,7 @@ class OwnerNotifier extends Notifier<OwnerState> {
       state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
 
-    await loadOwner();
+    await loadOwners();
   }
 
   Future<void> deleteOwner(int id) async {
@@ -65,6 +63,6 @@ class OwnerNotifier extends Notifier<OwnerState> {
       state = state.copyWith(errorMessage: e.toString(), isLoading: false);
     }
 
-    await loadOwner();
+    await loadOwners();
   }
 }

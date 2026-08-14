@@ -289,6 +289,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not Avaliable'**
   String get notAvailable;
+
+  /// No description provided for @owners.
+  ///
+  /// In en, this message translates to:
+  /// **'Owners'**
+  String get owners;
+
+  /// No description provided for @addOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Owner'**
+  String get addOwner;
+
+  /// No description provided for @editOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Owner'**
+  String get editOwner;
+
+  /// No description provided for @enterOwnerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Owner Name'**
+  String get enterOwnerName;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @fishs.
+  ///
+  /// In en, this message translates to:
+  /// **'Fishs'**
+  String get fishs;
+
+  /// No description provided for @addFish.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Fish'**
+  String get addFish;
+
+  /// No description provided for @editFish.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Fish'**
+  String get editFish;
+
+  /// No description provided for @enterFishName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Fish Name'**
+  String get enterFishName;
+
+  /// No description provided for @expense.
+  ///
+  /// In en, this message translates to:
+  /// **'Expense'**
+  String get expense;
+
+  /// No description provided for @addExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Expense'**
+  String get addExpense;
+
+  /// No description provided for @editExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Expense'**
+  String get editExpense;
+
+  /// No description provided for @enterExpenseName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Expense Name'**
+  String get enterExpenseName;
 }
 
 class _AppLocalizationsDelegate

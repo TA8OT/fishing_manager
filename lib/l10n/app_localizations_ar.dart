@@ -103,4 +103,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notAvailable => 'Not Avaliable';
+
+  @override
+  String get owners => 'Owners';
+
+  @override
+  String get addOwner => 'Add Owner';
+
+  @override
+  String get editOwner => 'Edit Owner';
+
+  @override
+  String get enterOwnerName => 'Enter Owner Name';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get fishs => 'Fishs';
+
+  @override
+  String get addFish => 'Add Fish';
+
+  @override
+  String get editFish => 'Edit Fish';
+
+  @override
+  String get enterFishName => 'Enter Fish Name';
+
+  @override
+  String get expense => 'Expense';
+
+  @override
+  String get addExpense => 'Add Expense';
+
+  @override
+  String get editExpense => 'Edit Expense';
+
+  @override
+  String get enterExpenseName => 'Enter Expense Name';
 }
