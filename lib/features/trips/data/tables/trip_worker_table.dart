@@ -23,7 +23,8 @@ class TripWorkerTable {
 
     FOREIGN KEY ($workerIdColumn)
       REFERENCES ${WorkerTable.tableName}(${WorkerTable.idColumn})
-      ON DELETE RESTRICT
+      ON DELETE RESTRICT,
+    UNIQUE(trip_id, worker_id)
   );
 ''';
 }

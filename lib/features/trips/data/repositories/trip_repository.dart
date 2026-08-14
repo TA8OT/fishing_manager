@@ -4,12 +4,13 @@ import 'package:fishing_app/features/trips/data/tables/trip_table.dart';
 
 class TripRepository {
   final AppDatabase database;
+
   TripRepository(this.database);
 
-  Future<void> insertTrip(TripModel trip) async {
+  Future<int> insertTrip(TripModel trip) async {
     final db = await database.database;
 
-    await db.insert(TripTable.tableName, trip.toMap());
+    return await db.insert(TripTable.tableName, trip.toMap());
   }
 
   Future<void> updateTrip(TripModel trip) async {
@@ -33,10 +34,13 @@ class TripRepository {
     );
   }
 
-  Future<List<TripModel>> getAllTrip() async {
+  Future<List<TripModel>> getAllTrips() async {
     final db = await database.database;
 
-    final maps = await db.query(TripTable.tableName);
+    final maps = await db.query(
+      TripTable.tableName,
+      orderBy: '${TripTable.startDateColumn} DESC',
+    );
 
     return maps.map((map) => TripModel.fromMap(map)).toList();
   }

@@ -9,10 +9,10 @@ class TripFishModel {
 
   const TripFishModel({
     this.id,
-    required this.fishId,
     required this.tripId,
-    required this.pricePerKg,
+    required this.fishId,
     required this.weight,
+    required this.pricePerKg,
   });
 
   Map<String, dynamic> toMap() {
@@ -27,11 +27,11 @@ class TripFishModel {
 
   factory TripFishModel.fromMap(Map<String, dynamic> map) {
     return TripFishModel(
-      id: map[TripFishsTable.idColumn],
-      fishId: map[TripFishsTable.fishIdColumn],
-      tripId: map[TripFishsTable.tripIdColumn],
-      pricePerKg: map[TripFishsTable.pricePerKgColumn],
-      weight: map[TripFishsTable.weightColumn],
+      id: map[TripFishsTable.idColumn] as int?,
+      tripId: map[TripFishsTable.tripIdColumn] as int,
+      fishId: map[TripFishsTable.fishIdColumn] as int,
+      weight: (map[TripFishsTable.weightColumn] as num).toDouble(),
+      pricePerKg: (map[TripFishsTable.pricePerKgColumn] as num).toDouble(),
     );
   }
 
@@ -44,10 +44,10 @@ class TripFishModel {
   }) {
     return TripFishModel(
       id: id ?? this.id,
-      fishId: fishId ?? this.fishId,
       tripId: tripId ?? this.tripId,
-      pricePerKg: pricePerKg ?? this.pricePerKg,
+      fishId: fishId ?? this.fishId,
       weight: weight ?? this.weight,
+      pricePerKg: pricePerKg ?? this.pricePerKg,
     );
   }
 }
