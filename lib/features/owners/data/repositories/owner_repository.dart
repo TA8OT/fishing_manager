@@ -45,7 +45,7 @@ class OwnerRepository {
     final db = await database.database;
 
     final maps = await db.query(
-      OwnerTable.nameColumn,
+      OwnerTable.tableName,
       where: '${OwnerTable.tableName} = ?',
       whereArgs: [id],
       limit: 1,

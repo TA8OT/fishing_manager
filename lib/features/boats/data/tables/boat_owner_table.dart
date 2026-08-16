@@ -9,6 +9,7 @@ class BoatOwnerTable {
   static const String idColumn = 'id';
   static const String boatIdColumn = 'boat_id';
   static const String ownerIdColumn = 'owner_id';
+  static const String shareColumn = "share";
 
   static const String createTable =
       '''
@@ -17,6 +18,7 @@ class BoatOwnerTable {
 
       $boatIdColumn INTEGER NOT NULL,
       $ownerIdColumn INTEGER NOT NULL,
+      $shareColumn REAL NOT NULL,
 
       FOREIGN KEY ($boatIdColumn)
         REFERENCES ${BoatTable.tableName}(${BoatTable.idColumn})

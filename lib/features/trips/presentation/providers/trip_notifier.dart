@@ -2,9 +2,7 @@ import 'package:fishing_app/core/database/app_database.dart';
 import 'package:fishing_app/features/trips/data/models/trip_model.dart';
 import 'package:fishing_app/features/trips/data/repositories/trip_repository.dart';
 import 'package:fishing_app/features/trips/presentation/providers/trip_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:path/path.dart';
 
 class TripNotifier extends Notifier<TripState> {
   late final TripRepository repository;
@@ -21,7 +19,7 @@ class TripNotifier extends Notifier<TripState> {
     state = state.copyWith(isLoading: true);
 
     try {
-      final result = await repository.getAllTrip();
+      final result = await repository.getAllTrips();
 
       state = state.copyWith(
         trips: result,
