@@ -1,4 +1,5 @@
 import 'package:fishing_app/features/boats/data/models/boat_model.dart';
+import 'package:fishing_app/features/boats/presentation/screens/boat_details_screen.dart';
 import 'package:fishing_app/features/boats/presentation/screens/boat_form_screen.dart';
 import 'package:fishing_app/features/boats/presentation/screens/boat_list_screen.dart';
 import 'package:fishing_app/features/expenses/data/models/expense_model.dart';
@@ -10,6 +11,7 @@ import 'package:fishing_app/features/fishs/presentation/screens/fish_list_screen
 import 'package:fishing_app/features/owners/data/models/owner_model.dart';
 import 'package:fishing_app/features/owners/presentation/screens/owner_form_screen.dart';
 import 'package:fishing_app/features/owners/presentation/screens/owner_list_screen.dart';
+import 'package:fishing_app/features/boats/presentation/screens/boat_owners_screen.dart';
 import 'package:fishing_app/features/workers/data/models/worker_model.dart';
 import 'package:fishing_app/features/workers/presentation/screens/worker_form_screen.dart';
 import 'package:fishing_app/features/workers/presentation/screens/worker_list_screen.dart';
@@ -31,13 +33,21 @@ final appRouter = GoRouter(
       },
     ),
 
-    GoRoute(path: '/workers', builder: (context, state) => WorkerListScreen()),
     GoRoute(
-      path: '/workerform',
+      path: '/boat-details',
       builder: (context, state) {
-        final worker = state.extra as WorkerModel?;
+        final boat = state.extra as BoatModel;
 
-        return WorkerFormScreen(worker: worker);
+        return BoatDetailsScreen(boat: boat);
+      },
+    ),
+
+    GoRoute(
+      path: '/boat-owners',
+      builder: (context, state) {
+        final boatId = state.extra as int;
+
+        return BoatOwnersScreen(boatId: boatId);
       },
     ),
 
@@ -48,6 +58,16 @@ final appRouter = GoRouter(
         final owner = state.extra as OwnerModel?;
 
         return OwnerFormScreen(owner: owner);
+      },
+    ),
+
+    GoRoute(path: '/workers', builder: (context, state) => WorkerListScreen()),
+    GoRoute(
+      path: '/workerform',
+      builder: (context, state) {
+        final worker = state.extra as WorkerModel?;
+
+        return WorkerFormScreen(worker: worker);
       },
     ),
 

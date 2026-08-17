@@ -4,7 +4,7 @@ import 'package:fishing_app/features/trips/data/tables/trip_table.dart';
 class TripFishsTable {
   TripFishsTable._();
 
-  static const String tableName = 'trip_expenses';
+  static const String tableName = 'trip_fishs';
 
   static const String idColumn = 'id';
   static const String tripIdColumn = 'trip_id';

@@ -2,6 +2,7 @@ import 'package:fishing_app/core/constants/app_gap.dart';
 import 'package:fishing_app/features/boats/data/models/boat_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fishing_app/l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 
 class BoatCard extends StatelessWidget {
   final BoatModel boat;
@@ -21,6 +22,9 @@ class BoatCard extends StatelessWidget {
 
     return Card(
       child: ListTile(
+        onTap: () {
+          context.push('/boat-details', extra: boat);
+        },
         title: Row(
           children: [Icon(Icons.directions_boat), AppGap.w12, Text(boat.name)],
         ),
