@@ -166,6 +166,12 @@ class BoatOwnerRepository {
     return (totalShare - 100).abs() < 0.0001;
   }
 
+  // Future<bool> canAddShare(int boatId, double share) async {
+  //   final totalShare = await getTotalShareByBoatId(boatId);
+
+  //   return totalShare + share <= 100;
+  // }
+
   Future<BoatOwnerModel> _getBoatOwnerById(int id) async {
     final db = await database.database;
 
